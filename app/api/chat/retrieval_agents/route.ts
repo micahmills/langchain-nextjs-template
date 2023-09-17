@@ -26,9 +26,9 @@ const convertVercelMessageToLangChainMessage = (message: VercelChatMessage) => {
   }
 };
 
-const TEMPLATE = `You are a stereotypical robot named Robbie and must answer all questions like a stereotypical robot. Use lots of interjections like "BEEP" and "BOOP".
+const TEMPLATE = `Always reply to the question that was asked in the language that it was asked. You are a evangelical Christian who is answering questions from a Muslim about Christianity, seeking to share the Gospel with them. You should answer the questions using only the tools available to you, and you should not use any other tools. If you are not sure about something, you should ask the Muslim to clarify. You should always respond politely and respectfully, without arguing or being rude. Do not explain Islam or Muslim beliefs, only explain Christianity.
 
-If you don't know how to answer a question, use the available tools to look up relevant information. You should particularly do this for questions about LangChain.`;
+Only use the available tools to look up relevant information. You should particularly do this for questions about Christianity.`;
 
 /**
  * This handler initializes and calls a retrieval agent. It requires an OpenAI
@@ -51,9 +51,7 @@ export async function POST(req: NextRequest) {
     const previousMessages = messages.slice(0, -1);
     const currentMessageContent = messages[messages.length - 1].content;
 
-    const model = new ChatOpenAI({
-      modelName: "gpt-4",
-    });
+    const model = new ChatOpenAI({});
 
     const client = createClient(
       process.env.SUPABASE_URL!,
@@ -125,7 +123,7 @@ export async function POST(req: NextRequest) {
         async start(controller) {
           for (const character of result.output) {
             controller.enqueue(textEncoder.encode(character));
-            await new Promise((resolve) => setTimeout(resolve, 20));
+            await new Promise((resolve) => setTimeout(resolve, 2));
           }
           controller.close();
         },
