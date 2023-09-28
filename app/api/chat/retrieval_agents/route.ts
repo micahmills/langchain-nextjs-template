@@ -93,7 +93,7 @@ export async function POST(req: NextRequest) {
      */
     const tool = createRetrieverTool(retriever, {
       name: "search_latest_knowledge",
-      description: "Searches and returns up-to-date general information.",
+      description: "Searches and returns information regarding Christianity and questions Muslims ask about Christianity.",
     });
 
     const executor = await initializeAgentExecutorWithOptions([tool], model, {

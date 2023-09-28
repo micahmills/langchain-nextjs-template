@@ -8,7 +8,7 @@ export default function AgentsPage() {
     <ChatWindow
       endpoint="api/chat/retrieval_agents"
       emptyStateComponent={InfoCard}
-      showIngestForm={false}
+      showIngestForm={true}
       showIntermediateStepsToggle={true}
       placeholder={
         'Ask Any question about Christianity?'
