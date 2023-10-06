@@ -92,7 +92,7 @@ export async function POST(req: NextRequest) {
      * usable form.
      */
     const tool = createRetrieverTool(retriever, {
-      name: "search_latest_knowledge",
+      name: "search_FAQs",
       description: "Searches and returns information regarding Christianity and questions Muslims ask about Christianity.",
     });
 
