@@ -5,12 +5,16 @@ import { usePathname } from 'next/navigation';
 export function Navbar() {
   const pathname = usePathname();
   return (
-    <nav className="mb-4">
-      <a className={`mr-4 ${pathname === "/" ? "text-white border-b" : ""}`} href="/">🏴‍☠️ Chat</a>
-      <a className={`mr-4 ${pathname === "/structured_output" ? "text-white border-b" : ""}`} href="/structured_output">🧱 Structured Output</a>
-      <a className={`mr-4 ${pathname === "/agents" ? "text-white border-b" : ""}`} href="/agents">🦜 Agents</a>
-      <a className={`mr-4 ${pathname === "/retrieval" ? "text-white border-b" : ""}`} href="/retrieval">🐶 Retrieval</a>
-      <a className={`mr-4 ${pathname === "/retrieval_agents" ? "text-white border-b" : ""}`} href="/retrieval_agents">🤖 Retrieval Agents</a>
+    <nav className="m-8 text-center">
+      <a className={`mr-8 ${pathname === "/retrieval_agents/english" ? "text-white border-b" : ""}`} href="/retrieval_agents/english">English</a>
+      <a className={`mr-8 ${pathname === "/retrieval_agents/kazakh" ? "text-white border-b" : ""}`} href="/retrieval_agents/kazakh">Kazakh</a>
+      <a className={`mr-8 ${pathname === "/retrieval_agents/kurmanji" ? "text-white border-b" : ""}`} href="/retrieval_agents/kurmanji">Kurmanji</a>
+      <a className={`mr-8 ${pathname === "/retrieval_agents/persian" ? "text-white border-b" : ""}`} href="/retrieval_agents/persian">Persian</a>
+      <a className={`mr-8 ${pathname === "/retrieval_agents/russian" ? "text-white border-b" : ""}`} href="/retrieval_agents/russian">Russian</a>
+      <a className={`mr-8 ${pathname === "/retrieval_agents/sorani" ? "text-white border-b" : ""}`} href="/retrieval_agents/sorani">Sorani</a>
+      <a className={`mr-8 ${pathname === "/retrieval_agents/tajik" ? "text-white border-b" : ""}`} href="/retrieval_agents/tajik">Tajik</a>
+      <a className={`mr-8 ${pathname === "/retrieval_agents/turkish" ? "text-white border-b" : ""}`} href="/retrieval_agents/turkish">Turkish</a>
+      <a className={`mr-8 ${pathname === "/retrieval_agents/uyghur" ? "text-white border-b" : ""}`} href="/retrieval_agents/uyghur">Uyghur</a>
     </nav>
   );
 }
