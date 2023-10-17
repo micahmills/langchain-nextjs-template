@@ -58,7 +58,6 @@ export function ChatWindow(props: {
     }
       setIntermediateStepsLoading(true);
       setInput("");
-      console.log("language!" , language);
       const messagesWithUserReply = messages.concat({ id: messages.length.toString(), content: input, role: "user" });
       setMessages(messagesWithUserReply);
       const response = await fetch(endpoint, {

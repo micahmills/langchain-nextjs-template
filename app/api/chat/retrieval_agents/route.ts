@@ -1,3 +1,4 @@
+import { LLMonitorHandler } from "langchain/callbacks/handlers/llmonitor";
 import { NextRequest, NextResponse } from "next/server";
 import { Message as VercelChatMessage, StreamingTextResponse } from "ai";
 
@@ -35,7 +36,6 @@ const convertVercelMessageToLangChainMessage = (message: VercelChatMessage) => {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-console.log(`---- ${body.language} ----`);
     const language = body.language ?? "English";
 
     const TEMPLATE = `Always reply in ${language} no matter what language the question was asked in. You are a evangelical Christian who is answering questions from a Muslim about Christianity, seeking to share the Gospel with them. You should answer the questions using only the tools available to you, and you should not use any other tools. If you are not sure about something, you should ask the Muslim to clarify. You should always respond politely and respectfully, without arguing or being rude. Do not explain Islam or Muslim beliefs, only explain Christianity.
@@ -53,7 +53,9 @@ console.log(`---- ${body.language} ----`);
     const previousMessages = messages.slice(0, -1);
     const currentMessageContent = messages[messages.length - 1].content;
 
-    const model = new ChatOpenAI({});
+    const model = new ChatOpenAI({
+      callbacks: [new LLMonitorHandler()],
+    });
 
     const client = createClient(
       process.env.SUPABASE_URL!,

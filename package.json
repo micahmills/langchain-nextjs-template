@@ -24,6 +24,7 @@
     "eslint-config-next": "13.4.12",
     "faiss-node": "^0.3.0",
     "langchain": "^0.0.150",
+    "llmonitor": "^0.5.9",
     "next": "13.4.12",
     "pickleparser": "^0.1.0",
     "postcss": "8.4.27",
