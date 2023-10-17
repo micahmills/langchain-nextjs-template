@@ -8,6 +8,7 @@ export function Navbar() {
     <nav className="m-8 text-center">
       <a className={`mr-8 ${pathname === "/retrieval_agents/arabic" ? "text-white border-b" : ""}`} href="/retrieval_agents/arabic">Arabic</a>
       <a className={`mr-8 ${pathname === "/retrieval_agents/english" ? "text-white border-b" : ""}`} href="/retrieval_agents/english">English</a>
+      <a className={`mr-8 ${pathname === "/retrieval_agents/french" ? "text-white border-b" : ""}`} href="/retrieval_agents/french">French</a>
       <a className={`mr-8 ${pathname === "/retrieval_agents/kazakh" ? "text-white border-b" : ""}`} href="/retrieval_agents/kazakh">Kazakh</a>
       <a className={`mr-8 ${pathname === "/retrieval_agents/kurmanji" ? "text-white border-b" : ""}`} href="/retrieval_agents/kurmanji">Kurmanji</a>
       <a className={`mr-8 ${pathname === "/retrieval_agents/persian" ? "text-white border-b" : ""}`} href="/retrieval_agents/persian">Persian</a>
