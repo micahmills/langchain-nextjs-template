@@ -2,19 +2,20 @@ import { ChatWindow } from "@/components/ChatWindow";
 
 export default function AgentsPage() {
   const InfoCard = (
-    <h1>Digital Responder Agent</h1>
+    <h1>Digital Responder Agent - Turkish</h1>
   );
   return (
     <ChatWindow
-      endpoint="api/chat/retrieval_agents"
+      endpoint="../api/chat/retrieval_agents"
       emptyStateComponent={InfoCard}
-      showIngestForm={true}
+      showIngestForm={false}
       
+      language="Turkish"
       placeholder={
-        'Ask Any question about Christianity?'
+        'Hıristiyanlık hakkında herhangi bir soru sorun'
       }
       emoji="🤖"
-      titleText="Digital Responder Bot"
+      titleText="Digital Responder Bot - Turkish"
     ></ChatWindow>
   );
 }

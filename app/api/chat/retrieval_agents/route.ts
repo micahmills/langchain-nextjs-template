@@ -26,10 +26,6 @@ const convertVercelMessageToLangChainMessage = (message: VercelChatMessage) => {
   }
 };
 
-const TEMPLATE = `Always reply to the question that was asked in the language that it was asked. You are a evangelical Christian who is answering questions from a Muslim about Christianity, seeking to share the Gospel with them. You should answer the questions using only the tools available to you, and you should not use any other tools. If you are not sure about something, you should ask the Muslim to clarify. You should always respond politely and respectfully, without arguing or being rude. Do not explain Islam or Muslim beliefs, only explain Christianity.
-
-Only use the available tools to look up relevant information. You should particularly do this for questions about Christianity.`;
-
 /**
  * This handler initializes and calls a retrieval agent. It requires an OpenAI
  * Functions model. See the docs for more information:
@@ -39,6 +35,12 @@ Only use the available tools to look up relevant information. You should particu
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
+console.log(`---- ${body.language} ----`);
+    const language = body.language ?? "English";
+
+    const TEMPLATE = `Always reply in ${language} no matter what language the question was asked in. You are a evangelical Christian who is answering questions from a Muslim about Christianity, seeking to share the Gospel with them. You should answer the questions using only the tools available to you, and you should not use any other tools. If you are not sure about something, you should ask the Muslim to clarify. You should always respond politely and respectfully, without arguing or being rude. Do not explain Islam or Muslim beliefs, only explain Christianity.
+
+    Only use the available tools to look up relevant information. You should particularly do this for questions about Christianity.`;
     /**
      * We represent intermediate steps as system messages for display purposes,
      * but don't want them in the chat history.

@@ -19,12 +19,12 @@ export function ChatWindow(props: {
   titleText?: string,
   emoji?: string;
   showIngestForm?: boolean,
-  showIntermediateStepsToggle?: boolean
+  showIntermediateStepsToggle?: boolean,
+  language?: string
 }) {
   const messageContainerRef = useRef<HTMLDivElement | null>(null);
 
-  const { endpoint, emptyStateComponent, placeholder, titleText = "An LLM", showIngestForm, showIntermediateStepsToggle, emoji } = props;
-
+  const { endpoint, emptyStateComponent, placeholder, titleText = "An LLM", showIngestForm, showIntermediateStepsToggle, emoji, language } = props;
   const [showIntermediateSteps, setShowIntermediateSteps] = useState(false);
   const [intermediateStepsLoading, setIntermediateStepsLoading] = useState(false);
   const ingestForm = showIngestForm && <UploadDocumentsForm></UploadDocumentsForm>;
@@ -56,19 +56,17 @@ export function ChatWindow(props: {
     if (chatEndpointIsLoading ?? intermediateStepsLoading) {
       return;
     }
-    if (!showIntermediateSteps) {
-      handleSubmit(e);
-    // Some extra work to show intermediate steps properly
-    } else {
       setIntermediateStepsLoading(true);
       setInput("");
+      console.log("language!" , language);
       const messagesWithUserReply = messages.concat({ id: messages.length.toString(), content: input, role: "user" });
       setMessages(messagesWithUserReply);
       const response = await fetch(endpoint, {
         method: "POST",
         body: JSON.stringify({
           messages: messagesWithUserReply,
-          show_intermediate_steps: true
+          show_intermediate_steps: true,
+          language: language
         })
       });
       const json = await response.json();
@@ -93,7 +91,6 @@ export function ChatWindow(props: {
           throw new Error(json.error);
         }
       }
-    }
   }
 
   return (

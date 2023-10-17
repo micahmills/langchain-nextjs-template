@@ -2,19 +2,20 @@ import { ChatWindow } from "@/components/ChatWindow";
 
 export default function AgentsPage() {
   const InfoCard = (
-    <h1>Digital Responder Agent</h1>
+    <h1>Digital Responder Agent - Kurmanji</h1>
   );
   return (
     <ChatWindow
-      endpoint="api/chat/retrieval_agents"
+      endpoint="../api/chat/retrieval_agents"
       emptyStateComponent={InfoCard}
-      showIngestForm={true}
+      showIngestForm={false}
       
+      language="Kurmanji Kurdish"
       placeholder={
-        'Ask Any question about Christianity?'
+        'Pirsên li ser Xirîstiyantiyê bipirsin'
       }
       emoji="🤖"
-      titleText="Digital Responder Bot"
+      titleText="Digital Responder Bot - Kurmanji"
     ></ChatWindow>
   );
 }
