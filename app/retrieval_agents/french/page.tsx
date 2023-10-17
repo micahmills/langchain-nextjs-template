@@ -10,7 +10,7 @@ export default function AgentsPage() {
       emptyStateComponent={InfoCard}
       showIngestForm={false}
       
-      language="Turkish"
+      language="French"
       placeholder={
         "Posez n'importe quelle question sur le christianisme"
       }
