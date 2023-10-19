@@ -1,4 +1,4 @@
-export default function Success() {
+export default function Page() {
     return <div>Form successfully submitted!</div>
   }
   
