@@ -12,14 +12,17 @@ export function ContactForm(props: {
         var convo = '';
         ([...messages]).reverse().forEach(e=>{ 
             console.log(e);
-            convo += e.innerText;
+            convo += ( e as HTMLElement)?.innerText;
         })
 
-        const hiddenTextfield = document.querySelector("textarea[name='chatConversation']")
-        hiddenTextfield.value = convo;
+        let hiddenTextfield = document.querySelector<HTMLTextAreaElement>("textarea[name='chatConversation']")
+        if (hiddenTextfield) {
+            hiddenTextfield.value = convo;
+        }
+
     }
 
-    useEffect(() => {
+    useEffect(() => { 
         if (isOpen) {
             getChatConversation();
         }
