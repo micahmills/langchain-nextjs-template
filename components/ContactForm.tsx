@@ -22,7 +22,7 @@ export function ContactForm(props: {
     }
 
     const getLanguagefromURL = () => {
-        const language = window.location.pathname.split("/").pop();
+        const language:string = window.location.pathname.split("/").pop() as string;
         let hiddenLangfield = document.querySelector<HTMLTextAreaElement>("input[name='language']")
         if (hiddenLangfield) {
             hiddenLangfield.value = language;
