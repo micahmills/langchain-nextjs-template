@@ -75,9 +75,9 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    const result = await executor.call(
-      { input: currentMessageContent},
-      [ LLMonitorHandler ] );
+    const result = await executor.call({
+      input: currentMessageContent,
+    });
 
     // Intermediate steps are too complex to stream
     if (returnIntermediateSteps) {
