@@ -19,12 +19,20 @@ export function ContactForm(props: {
         if (hiddenTextfield) {
             hiddenTextfield.value = convo;
         }
+    }
 
+    const getLanguagefromURL = () => {
+        const language = window.location.pathname.split("/").pop();
+        let hiddenLangfield = document.querySelector<HTMLTextAreaElement>("input[name='language']")
+        if (hiddenLangfield) {
+            hiddenLangfield.value = language;
+        }
     }
 
     useEffect(() => { 
         if (isOpen) {
             getChatConversation();
+            getLanguagefromURL();
         }
     }, [isOpen]);
 
@@ -48,6 +56,7 @@ export function ContactForm(props: {
                 <label>Message: <textarea name="message"></textarea></label>
                 </p>
                 <textarea name="chatConversation" style={{display: "none"}}></textarea>
+                <input name="language" style={{display: "none"}}></input>
                 <p>
                 <button type="submit">Send</button>
                 </p>

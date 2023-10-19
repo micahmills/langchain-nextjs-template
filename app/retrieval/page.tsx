@@ -1,4 +1,5 @@
 import { ChatWindow } from "@/components/ChatWindow";
+import { ContactForm } from "@/components/ContactForm";
 
 export default function AgentsPage() {
   const InfoCard = (
@@ -100,7 +101,8 @@ export default function AgentsPage() {
     </div>
   );
   return (
-    <ChatWindow
+    <div>
+      <ChatWindow
       endpoint="api/chat/retrieval"
       emptyStateComponent={InfoCard}
       showIngestForm={true}
@@ -110,5 +112,10 @@ export default function AgentsPage() {
       emoji="🐶"
       titleText="Dana the Document-Retrieving Dog"
     ></ChatWindow>
+
+        <ContactForm
+          isOpen={false}
+        ></ContactForm>
+      </div>
   );
 }

@@ -1,4 +1,5 @@
 import { ChatWindow } from "@/components/ChatWindow";
+import { ContactForm } from "@/components/ContactForm";
 
 export default function AgentsPage() {
   const InfoCard = (
@@ -76,7 +77,8 @@ export default function AgentsPage() {
     </div>
   );
   return (
-    <ChatWindow
+    <div>
+      <ChatWindow
       endpoint="api/chat/agents"
       emptyStateComponent={InfoCard}
       placeholder="Squawk! I'm a conversational agent! Ask me about the current weather in Honolulu!"
@@ -84,5 +86,10 @@ export default function AgentsPage() {
       emoji="🦜"
       showIntermediateStepsToggle={true}
     ></ChatWindow>
+
+        <ContactForm
+          isOpen={false}
+        ></ContactForm>
+      </div>
   );
 }

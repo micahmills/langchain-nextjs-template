@@ -1,4 +1,5 @@
 import { ChatWindow } from "@/components/ChatWindow";
+import { ContactForm } from "@/components/ContactForm";
 
 export default function AgentsPage() {
   const InfoCard = (
@@ -91,12 +92,18 @@ export default function AgentsPage() {
     </div>
   );
   return (
-    <ChatWindow
+    <div>
+      <ChatWindow
       endpoint="api/chat/structured_output"
       emptyStateComponent={InfoCard}
       placeholder={`No matter what you type here, I'll always return the same JSON object with the same structure!`}
       emoji="🧱"
       titleText="Structured Output"
     ></ChatWindow>
+
+        <ContactForm
+          isOpen={false}
+        ></ContactForm>
+      </div>
   );
 }
