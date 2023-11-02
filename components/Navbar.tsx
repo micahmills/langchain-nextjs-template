@@ -6,8 +6,9 @@ export function Navbar() {
   const pathname = usePathname();
   return (
     <nav className="m-8 text-center">
-      <a className={`mr-8 ${pathname === "/retrieval_agents/arabic" ? "text-white border-b" : ""}`} href="/retrieval_agents/arabic">Arabic</a>
       <a className={`mr-8 ${pathname === "/retrieval_agents/english" ? "text-white border-b" : ""}`} href="/retrieval_agents/english">English</a>
+      <a className={`mr-8 ${pathname === "/retrieval_agents/arabic" ? "text-white border-b" : ""}`} href="/retrieval_agents/arabic">Arabic</a>
+      <a className={`mr-8 ${pathname === "/retrieval_agents/hebrew" ? "text-white border-b" : ""}`} href="/retrieval_agents/hebrew">Hebrew</a>
       <a className={`mr-8 ${pathname === "/retrieval_agents/french" ? "text-white border-b" : ""}`} href="/retrieval_agents/french">French</a>
       <a className={`mr-8 ${pathname === "/retrieval_agents/italian" ? "text-white border-b" : ""}`} href="/retrieval_agents/italian">Italian</a>
       <a className={`mr-8 ${pathname === "/retrieval_agents/kazakh" ? "text-white border-b" : ""}`} href="/retrieval_agents/kazakh">Kazakh</a>
